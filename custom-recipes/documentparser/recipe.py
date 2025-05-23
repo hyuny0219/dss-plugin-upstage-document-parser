@@ -163,6 +163,7 @@ def save_ocr_result_with_retry(
                 continue
             else:
                 # 정상 응답(혹은 다른 에러지만 429는 아님)이면 JSON 저장
+                os.makedirs(os.path.dirname(output_file_path), exist_ok=True)
                 with open(output_file_path, "w", encoding="utf-8") as f:
                     json.dump(ocr_data, f, ensure_ascii=False, indent=4)
                 print("[INFO] OCR 결과 저장 완료:", output_file_path)
