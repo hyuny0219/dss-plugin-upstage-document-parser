@@ -27,7 +27,7 @@ from upstgaedocumentparser.utils.recipes_io_utils import get_input_output
 # Parameters must be added to the recipe.json file so that DSS can prompt the user for values in
 # the Settings tab of the recipe. The field "params" holds a list of all the params for wich the
 # user will be prompted for values.
-api_key = get_recipe_config()['api_key']
+api_key = get_recipe_config()['api_key']['api_key']
 api_option = get_recipe_config().get('api_option', '{}')
 timeout = int(get_recipe_config().get('timeout', 60))
 # The configuration is simply a map of parameters, and retrieving the value of one of them is simply:
@@ -44,8 +44,6 @@ timeout = int(get_recipe_config().get('timeout', 60))
 # Your original recipe
 #############################
 
-# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-# -*- coding: utf-8 -*-
 import dataiku
 import pandas as pd, numpy as np
 from dataiku import pandasutils as pdu
@@ -55,15 +53,9 @@ import time
 import os
 from pathlib import Path
 
-# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
-
 images, results = get_input_output('folder', 'folder')
-
-
-# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 paths = images.get_path()+images.list_paths_in_partition()[0]
 
-# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 def get_relative_path(file_path, main_folder):
     path = Path(file_path)
     parts = path.parts
@@ -76,7 +68,6 @@ def get_relative_path(file_path, main_folder):
     except ValueError:
         return ''  # 메인폴더 못 찾으면 빈 값
 
-# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 SUPPORTED_EXTENSIONS = (
     '.jpg', '.jpeg',  # JPEG
     '.png',           # PNG
@@ -222,7 +213,6 @@ def process_ocr_in_folder(root_ocr_img, root_ocr_json, url, headers, max_retries
             )
     print("End")
 
-# -------------------------------------------------------------------------------- NOTEBOOK-CELL: CODE
 root_ocr_img = images.get_path()
 root_ocr_json = results.get_path()
 
