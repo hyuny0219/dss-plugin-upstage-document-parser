@@ -27,6 +27,7 @@ from upstgaedocumentparser.utils.recipes_io_utils import get_input_output
 # Parameters must be added to the recipe.json file so that DSS can prompt the user for values in
 # the Settings tab of the recipe. The field "params" holds a list of all the params for wich the
 # user will be prompted for values.
+api_key = get_recipe_config()['api_key']
 api_token = get_recipe_config()['api_token']
 api_option = get_recipe_config().get('api_option', '{}')
 timeout = int(get_recipe_config().get('timeout', 60))
