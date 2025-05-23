@@ -36,6 +36,12 @@
 
     "params": [
         {
+            "name": "api_key",
+            "label": "Keys preset",
+            "type": "PRESET",
+            "parameterSetId": "api-credentials"
+        },
+        {
             "name": "api_token",
             "label": "Upstage API Token",
             "type": "PASSWORD",
