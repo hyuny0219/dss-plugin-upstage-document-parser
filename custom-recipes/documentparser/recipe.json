@@ -42,13 +42,6 @@
             "parameterSetId": "api-credentials"
         },
         {
-            "name": "api_token",
-            "label": "Upstage API Token",
-            "type": "PASSWORD",
-            "description": "API 인증 토큰 (필수)",
-            "mandatory": true
-        },
-        {
             "name": "api_option",
             "label": "API 옵션(JSON)",
             "type": "TEXTAREA",
