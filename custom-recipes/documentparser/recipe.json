@@ -1,0 +1,64 @@
+// This file is the descriptor for the Custom code recipe documentparser
+{
+    "meta": {
+        "label": "Upstage Document Parser",
+        "description": "폴더 내 문서를 Upstage Document Parser API를 통해 OCR 및 파싱하여 결과를 저장합니다.",
+        "icon": "fas fa-file-alt"
+    },
+
+    "kind": "PYTHON",
+    "selectableFromFolder": "input_folder",
+
+    "inputRoles": [
+        {
+            "name": "input_folder",
+            "label": "input_folder",
+            "description": "파싱할 문서들이 저장된 폴더",
+            "arity": "UNARY",
+            "required": true,
+            "acceptsDataset": false,
+            "acceptsFolder": true,
+            "acceptsManagedFolder": true
+        }
+    ],
+
+    "outputRoles": [
+        {
+            "name": "output_folder",
+            "label": "output_folder",
+            "description": "문서별 OCR/파싱 결과가 저장될 폴더",
+            "arity": "UNARY",
+            "required": true,
+            "acceptsDataset": false,
+            "acceptsManagedFolder": true
+        }
+    ],
+
+    "params": [
+        {
+            "name": "api_token",
+            "label": "Upstage API Token",
+            "type": "PASSWORD",
+            "description": "API 인증 토큰 (필수)",
+            "mandatory": true
+        },
+        {
+            "name": "api_option",
+            "label": "API 옵션(JSON)",
+            "type": "TEXTAREA",
+            "description": "API 추가 옵션(필요시, JSON 포맷)",
+            "mandatory": false,
+            "defaultValue": "{}"
+        },
+        {
+            "name": "timeout",
+            "label": "API 요청 타임아웃(초)",
+            "type": "INT",
+            "description": "각 문서별 API 요청 시 최대 대기 시간(기본값: 60초)",
+            "mandatory": false,
+            "defaultValue": 60
+        }
+    ],
+
+    "resourceKeys": []
+}
