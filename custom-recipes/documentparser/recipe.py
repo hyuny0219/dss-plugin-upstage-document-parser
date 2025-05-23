@@ -28,7 +28,6 @@ from upstgaedocumentparser.utils.recipes_io_utils import get_input_output
 # the Settings tab of the recipe. The field "params" holds a list of all the params for wich the
 # user will be prompted for values.
 api_key = get_recipe_config()['api_key']
-api_token = get_recipe_config()['api_token']
 api_option = get_recipe_config().get('api_option', '{}')
 timeout = int(get_recipe_config().get('timeout', 60))
 # The configuration is simply a map of parameters, and retrieving the value of one of them is simply:
