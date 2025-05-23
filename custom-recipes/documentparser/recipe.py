@@ -226,6 +226,8 @@ def process_ocr_in_folder(root_ocr_img, root_ocr_json, url, headers, max_retries
 root_ocr_img = images.get_path()
 root_ocr_json = results.get_path()
 
+print(api_key)
+
 url = "https://api.upstage.ai/v1/document-ai/ocr"
 headers = {"Authorization": f"Bearer {api_key}"}
 
